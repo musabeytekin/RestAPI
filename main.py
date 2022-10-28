@@ -61,8 +61,16 @@ class Title(Resource):
                 return {'data' : entry}, 200
         return {'message' : 'No entry found with this name !'}, 200
 
+class Author(Resource):
+    def get(self):
+        data = pd.read_csv('books.csv', usecols = [1])
+        data = data.to_dict('records')
+
+        return {'data' : data}, 200
+
 api.add_resource(Books, "/books")
 api.add_resource(Title, '/<string:Title>')
+api.add_resource(Author, '/author')
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000)
