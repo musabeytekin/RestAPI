@@ -1,3 +1,3 @@
 # RestAPI
 
-example outputs are in "outputs directory"
+example outputs are in "outputs" directory
